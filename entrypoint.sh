@@ -84,7 +84,7 @@ fi
 
 echo "Create Pull Request"
 if ! curl --location -s --request POST "https://api.github.com/repos/$DEST_GITHUB_USERNAME/$DEST_REPO_NAME/pulls" \
---header 'Authorization: token $API_TOKEN_GITHUB' \
+--header 'Authorization: token testing' \
 --header 'Accept: application/vnd.github.v3+json' \
 --header 'Content-Type: application/json' \
 --data-raw "{
