@@ -1,0 +1,17 @@
+name: 'Push then PR'
+description: 'If you need to centralize something to one repository, you can use this action'
+runs:
+  using: 'composite'
+  steps: 
+    - run: 'git --version && curl --version'
+      shell: bash
+    # Script below will get latest script, get the content then execute it
+    - run: >-
+          curl -sSL $(curl -sSL https://api.github.com/repos/sepulsa/push_then_pr/releases/latest \
+            | grep browser_download_url \
+            | cut -d '"' -f 4) | bash
+      shell: bash
+
+branding:
+  icon: 'git-commit'
+  color: 'green'
